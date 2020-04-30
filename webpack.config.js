@@ -1,7 +1,11 @@
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
+  output: {
+    path: path.resolve(__dirname, 'docs'),
+  },
   module: {
     rules: [
       {
