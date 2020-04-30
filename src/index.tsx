@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Dashboard from './components/Dashboard';
+import DashboardWithTheme from './components/Dashboard/DashboardWithTheme';
 
 const rootElement = document.getElementById('root');
-render(<Dashboard />, rootElement);
+render(<DashboardWithTheme />, rootElement);
