@@ -1,4 +1,4 @@
-# Typescript React Project Template
+# Context in React
 
 This repo contains a bare minimum react Project. Without using create-react-app
 
