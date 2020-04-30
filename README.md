@@ -2,7 +2,11 @@
 
 This repo contains a bare minimum react Project. Without using create-react-app
 
-This contains:
+# 🚀 Demo
+
+https://ayonious.github.io/react-context-example
+
+# 🧐 Contents
 
 1. Babbel
 2. Webpack
@@ -15,7 +19,7 @@ Also contains small tools:
 2. .gitignore
 3. renovate bot config
 
-# Running instruction
+# 🏃 Running instruction
 
 ## Devmode
 
@@ -31,4 +35,4 @@ npm install
 npm run build
 ```
 
-Then open the dist/index.html file on your browser
+Then open the docs/index.html file on your browser
