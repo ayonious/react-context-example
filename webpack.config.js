@@ -5,6 +5,8 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'docs'),
+    filename: '[name].[contenthash:8].js',
+    clean: true,
   },
   module: {
     rules: [
