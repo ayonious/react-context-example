@@ -1,9 +1,9 @@
 {
-  "include": ["./src/*", "test"],
+  "include": ["src"],
   "compilerOptions": {
-    "lib": ["dom", "es2015"],
+    "lib": ["dom", "es2020"],
     "jsx": "react",
-    "target": "es5",
+    "target": "es2020",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -11,9 +11,10 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["jest", "node", "@testing-library/jest-dom"]
   }
 }

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import ThemeContext, { darkTheme } from "./ThemeContext";
+import React, { useState } from 'react';
+import ThemeContext, { darkTheme } from './ThemeContext';
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children }: React.PropsWithChildren) => {
   const [theme, setTheme] = useState(darkTheme);
   const value = { theme, setTheme };
 

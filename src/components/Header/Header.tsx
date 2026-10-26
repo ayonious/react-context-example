@@ -1,5 +1,5 @@
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 import React from 'react';
 
 import ThemeContext, { revertThemes, Themes } from '../Context/ThemeContext';

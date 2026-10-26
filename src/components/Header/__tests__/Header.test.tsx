@@ -3,32 +3,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Header from '../Header';
 import ThemeProvider from '../../Context/ThemeProvider';
 
-// Mock Material-UI components
-jest.mock('@material-ui/core/FormControlLabel', () => {
-  return function MockFormControlLabel({ control, label, ...props }: any) {
-    return (
-      <div data-testid="form-control-label" {...props}>
-        {control}
-        <span data-testid="label">{label}</span>
-      </div>
-    );
-  };
-});
-
-jest.mock('@material-ui/core/Switch', () => {
-  return function MockSwitch({ checked, onClick, ...props }: any) {
-    return (
-      <input
-        type="checkbox"
-        data-testid="switch"
-        checked={checked}
-        onChange={onClick}
-        {...props}
-      />
-    );
-  };
-});
-
 // Mock styled components
 jest.mock('../styles', () => ({
   NavBar: ({ children, ...props }: any) => (
@@ -57,9 +31,12 @@ describe('Header', () => {
     );
 
     expect(screen.getByTestId('nav-bar')).toBeInTheDocument();
-    expect(screen.getByTestId('nav-center')).toHaveAttribute('data-theme', 'dark');
-    expect(screen.getByTestId('switch')).toBeChecked();
-    expect(screen.getByTestId('label')).toHaveTextContent('🌚 Dark Theme');
+    expect(screen.getByTestId('nav-center')).toHaveAttribute(
+      'data-theme',
+      'dark'
+    );
+    expect(screen.getByRole('switch')).toBeChecked();
+    expect(screen.getByText(/Theme/)).toHaveTextContent('🌚 Dark Theme');
   });
 
   test('toggles theme when switch is clicked', () => {
@@ -69,18 +46,21 @@ describe('Header', () => {
       </ThemeProvider>
     );
 
-    const switchElement = screen.getByTestId('switch');
-    
+    const switchElement = screen.getByRole('switch');
+
     // Initially dark theme
     expect(switchElement).toBeChecked();
-    expect(screen.getByTestId('label')).toHaveTextContent('🌚 Dark Theme');
+    expect(screen.getByText(/Theme/)).toHaveTextContent('🌚 Dark Theme');
 
     // Toggle to light theme
     fireEvent.click(switchElement);
-    
+
     expect(switchElement).not.toBeChecked();
-    expect(screen.getByTestId('label')).toHaveTextContent('🌞 Light Theme');
-    expect(screen.getByTestId('nav-center')).toHaveAttribute('data-theme', 'white');
+    expect(screen.getByText(/Theme/)).toHaveTextContent('🌞 Light Theme');
+    expect(screen.getByTestId('nav-center')).toHaveAttribute(
+      'data-theme',
+      'white'
+    );
   });
 
   test('contains all navigation elements', () => {
@@ -93,6 +73,6 @@ describe('Header', () => {
     expect(screen.getByTestId('nav-bar')).toBeInTheDocument();
     expect(screen.getByTestId('nav-center')).toBeInTheDocument();
     expect(screen.getByTestId('nav-header')).toBeInTheDocument();
-    expect(screen.getByTestId('form-control-label')).toBeInTheDocument();
+    expect(screen.getByRole('switch')).toHaveAccessibleName('🌚 Dark Theme');
   });
 });

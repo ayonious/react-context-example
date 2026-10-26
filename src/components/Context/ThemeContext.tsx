@@ -1,32 +1,32 @@
-import React from "react";
+import React from 'react';
 
-interface ThemeDetails {
+export interface ThemeDetails {
   themeName: Themes;
-  mainGrey: String;
-  mainWhite: String;
-  mainBlack: String;
-  darkGrey: String;
+  mainGrey: string;
+  mainWhite: string;
+  mainBlack: string;
+  darkGrey: string;
 }
 
 export enum Themes {
-  "dark" = "dark",
-  "white" = "white",
+  dark = 'dark',
+  white = 'white',
 }
 
 const whiteTheme: ThemeDetails = {
   themeName: Themes.white,
-  mainGrey: "#ecececc0",
-  mainWhite: "rgb(255, 255, 255)",
-  mainBlack: "#302f2f",
-  darkGrey: "#8e8e8e",
+  mainGrey: '#ecececc0',
+  mainWhite: 'rgb(255, 255, 255)',
+  mainBlack: '#302f2f',
+  darkGrey: '#8e8e8e',
 };
 
 export const darkTheme: ThemeDetails = {
   themeName: Themes.dark,
-  mainGrey: "#8e8e8e",
-  mainWhite: "#302f2f",
-  mainBlack: "rgb(255, 255, 255)",
-  darkGrey: "#ecececc0",
+  mainGrey: '#8e8e8e',
+  mainWhite: '#302f2f',
+  mainBlack: 'rgb(255, 255, 255)',
+  darkGrey: '#ecececc0',
 };
 
 export const revertThemes = {
@@ -36,7 +36,7 @@ export const revertThemes = {
 
 const ThemeContext = React.createContext({
   theme: darkTheme,
-  setTheme: (inp) => {},
+  setTheme: (_theme: ThemeDetails) => {},
 });
 
 export default ThemeContext;
