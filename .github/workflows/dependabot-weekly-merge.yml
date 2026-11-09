@@ -41,14 +41,6 @@ jobs:
           while IFS=$'\t' read -r number title; do
             echo "::group::#$number $title"
 
-            # Skip semver-major bumps ("from 6.0.0 to 7.0.1"); review those by hand.
-            if [[ "$title" =~ from\ v?([0-9]+)[^\ ]*\ to\ v?([0-9]+) ]] \
-              && [ "${BASH_REMATCH[1]}" != "${BASH_REMATCH[2]}" ]; then
-              echo "Skipping major version bump."
-              echo "::endgroup::"
-              continue
-            fi
-
             # The test jobs must each have run and succeeded on this PR
             # (matrix runs named "job (value)" must all have succeeded).
             checks=$(gh pr view "$number" --json statusCheckRollup --jq '.statusCheckRollup')

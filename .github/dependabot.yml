@@ -1,7 +1,7 @@
 # Dependabot opens weekly update PRs. It has no auto-merge setting of its own:
-# .github/workflows/dependabot-weekly-merge.yml merges the non-major PRs whose
-# required test jobs and all other checks pass every Monday. Major version bumps
-# are left for manual review.
+# .github/workflows/dependabot-weekly-merge.yml merges the PRs whose
+# required test jobs and all other checks pass every Monday, including major
+# version updates.
 version: 2
 updates:
   - package-ecosystem: npm
