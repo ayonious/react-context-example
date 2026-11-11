@@ -17,7 +17,6 @@ Also contains small tools:
 
 1. Prettier for formatting
 2. .gitignore
-3. renovate bot config
 
 ## 🏃 Running instruction
 
