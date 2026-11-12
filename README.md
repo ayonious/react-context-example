@@ -23,15 +23,15 @@ Also contains small tools:
 ### Devmode
 
 ```bash
-npm ci
-npm run start
+yarn install --frozen-lockfile
+yarn start
 ```
 
 ### Make Production build
 
 ```bash
-npm ci
-npm run build
+yarn install --frozen-lockfile
+yarn build
 ```
 
 Then open the docs/index.html file on your browser
@@ -39,9 +39,9 @@ Then open the docs/index.html file on your browser
 ### Verify changes
 
 ```bash
-npm run typecheck
-npm test -- --runInBand
-npm run build
+yarn typecheck
+yarn test --runInBand
+yarn build
 ```
 
 Use a current Node.js release supported by Webpack and Jest (Node.js 24 or newer).
